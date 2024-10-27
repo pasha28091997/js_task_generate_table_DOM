@@ -359,6 +359,14 @@ console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
 
+if (table) {
+  people.forEach((person) => {
+    const row = createRow(person);
+
+    table.appendChild(row);
+  });
+}
+
 function createRow(person) {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
@@ -375,9 +383,3 @@ function createRow(person) {
 
   return row;
 }
-
-people.forEach((person) => {
-  const row = createRow(person);
-
-  table.appendChild(row);
-});
